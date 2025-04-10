@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  --font-body: "DM Sans", "sans-serif";
+  --font-title: "Nunito", "sans-serif";
+  --c0: "#E7E7E7";
+  --c1: "#DFDFDF";
+  --c2: "#D9D9D9";
+  --c3: "#9E9E9E";
+  --c4: "#212121";
+  --c5: "#111111";
+  --p0: "#E8FFE4";
+  --p1: "#00E600";
+  --p2: "#003300";
+  --s0: "#FF2D2D";
+  --s1: "#00E5FF";
+  --s2: "#4B0404";
+  --s3: "#033749";
+}
