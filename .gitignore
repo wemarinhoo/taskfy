@@ -4,9 +4,7 @@ env
 __pycache__/
 *.py[cod]
 
-*.db
-*.sqlite
-*.sqlite3
+tasks.db
 
 alembic.ini
 migrations/
