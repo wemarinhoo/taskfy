@@ -11,23 +11,70 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link rel="icon" href="../assets/favicon.svg">
   <link href="./output.css" rel="stylesheet">
+  <script src="./script.js" defer></script>
 </head>
 <body class="bg-black flex w-screen h-screen items-center justify-center">
-  <main class="w-[800px] h-[600px] bg-c5 rounded-[40px] p-5">
-    <header class="flex justify-between items-center">
+  <main class="w-[1280px] h-[600px] bg-c5 rounded-[40px] p-5">
+    <header class="flex justify-between items-center mb-20">
       <img src="../taskfy-logo.svg" alt="Logo Taskfy">
       <div class="flex items-center gap-10">
         <div class="relative">
-          <input type="text" placeholder="Buscar Tarefa" name="search" id="search" class="px-3 py-1 border-[2px] border-c3 rounded-[20px] placeholder:text-c4 text-white text-lg">
-          <img src="../assets/search.svg" alt="" class="">
+          <input type="text" placeholder="Buscar Tarefa" name="search" id="search" class="pr-3 pl-8 py-1 border-[2px] border-c3 rounded-[20px] placeholder:text-c4 text-white text-lg outline-0 focus:border-p1 font-body">
+          <img src="../assets/search.svg" alt="" class="absolute top-3 left-3 mr-3">
         </div>
-
         <img src="../assets/notification.svg" alt="">
         <img src="../assets/profile-pic.svg" alt="">
       </div>
     </header>
 
+    <div class="flex items-center justify-between w-full mb-10">
+      <div>
+        <h1 class="text-2xl text-white font-body font-semibold">Todas as Tarefas</h1>
+      </div>
+      <div>
+        <button class="flex gap-2 px-3 py-1 bg-p1 font-body font-bold text-p2 rounded-[20px] text-lg items-center cursor-pointer hover:opacity-80 transition duration-300 tracking-wider" data-open-form-task="open-form-task"><img src="../assets/add.svg" alt="" class="h-6 w-6">ADICIONAR</button>
+      </div>
+    </div>
 
+    <div class="max-w-full mx-auto rounded-lg shadow-md overflow-hidden font-body">
+      <table class="min-w-full">
+        <thead>
+          <tr class="grid grid-cols-12 gap-4">
+            <th class="col-start-1 col-end-4 py-1 text-left text-lg font-semibold text-c3">Título</th>
+            <th class="col-start-5 col-end-12 py-1 text-left text-lg font-semibold text-c3">Descrição</th>
+            <th class="py-1 text-left text-lg font-semibold text-c3"></th>
+            <th class="py-1 text-left text-lg font-semibold text-c3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="grid grid-cols-12 gap-4">
+            <td class="col-start-1 col-end-4 py-4 whitespace-nowrap text-lg font-body text-white overflow-hidden truncate">Realizar compras no supermercado</td>
+            <td class="col-start-5 col-end-10 py-4 whitespace-nowrap text-lg font-body text-white overflow-hidden truncate">Banana, Frango, Patinho e Ovos</td>
+            <td class="col-start-11 py-4 whitespace-nowrap text-lg font-body text-right">
+              <span href="#" class="text-s0 text-lg">Excluir</span>
+            </td>
+            <td class="col-start-12 py-4 whitespace-nowrap text-lg font-body text-right">
+              <span href="#" class="text-p1 text-lg">Concluir</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </main>
+
+  <div class="absolute top-0 left-0 bg-black/80 w-full h-full hidden justify-center items-center" data-form-task="form-task">
+    <form class="relative w-[500px] h-[500px] rounded-[20px] bg-c5 z-10 p-5">
+      <h1 class="text-white text-2xl font-title font-bold mb-10">Criar Tarefa</h1>
+      <div class="flex items-center justify-between mb-5">
+        <input type="text" placeholder="Título..." class="text-2xl text-white placeholder:text-white font-body font-semibold outline-0">
+        <button class="flex gap-3 py-1 px-2 items-center text-white font-body border-2 border-c3 rounded-[20px]"><img src="../assets/calendar.svg" alt="">Definir Prazo</button>
+      </div>
+      <textarea name="" id="" placeholder="Descrição..." class="bg-c4 rounded-[20px] p-2 text-lg text-white font-body w-full max-w-full h-52 max-h-52 min-h-52 mb-5"></textarea>
+      <button class="flex gap-2 px-3 py-1 bg-p1 font-body tracking-wide font-bold text-p2 rounded-[20px] text-lg items-center cursor-pointer hover:opacity-80 transition duration-300">ADICIONAR TAREFA</button>
+      <div class="absolute top-0 right-0 h-12 w-12 bg-s0 text-white text-2xl flex items-center justify-center rounded-tr-[20px] rounded-bl-[20px] cursor-pointer" data-btn-close-form-task="btn-close-form-task">
+        <span>X</span>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
