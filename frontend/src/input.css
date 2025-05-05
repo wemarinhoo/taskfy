@@ -17,3 +17,22 @@
   --color-s2: #4B0404;
   --color-s3: #033749;
 }
+
+[data-task-list="task-list"]::-webkit-scrollbar {
+  width: 8px;                  
+}
+
+[data-task-list="task-list"]::-webkit-scrollbar-track {
+  background:var(--color-c4);
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: var(--color-c5);
+  border-radius: 10px;
+  height: 12px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

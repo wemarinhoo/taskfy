@@ -14,7 +14,7 @@
   <script src="./script.js" defer></script>
 </head>
 <body class="bg-black flex w-screen h-screen items-center justify-center">
-  <main class="w-[1280px] h-[600px] bg-c5 rounded-[40px] p-5">
+  <main class="w-[1320px] h-[600px] bg-c5 rounded-[40px] p-5">
     <header class="flex justify-between items-center mb-20">
       <img src="../taskfy-logo.svg" alt="Logo Taskfy">
       <div class="flex items-center gap-10">
@@ -37,17 +37,17 @@
     </div>
 
     <div class="max-w-full mx-auto font-body whitespace-nowrap">
-      <table class="min-w-full">
+      <table class="min-w-full mb-5">
         <thead>
           <tr class="grid grid-cols-12 gap-4">
             <th class="col-start-1 col-end-4 py-1 text-left text-lg font-semibold text-c3">Título</th>
-            <th class="col-start-5 col-end-12 py-1 text-left text-lg font-semibold text-c3">Descrição</th>
-            <th class="py-1 text-left text-lg font-semibold text-c3"></th>
-            <th class="py-1 text-left text-lg font-semibold text-c3"></th>
+            <th class="col-start-5 col-end-10 py-1 text-left text-lg font-semibold text-c3">Descrição</th>
+            <th class="col-start-11 py-1 text-left text-lg font-semibold text-c3"></th>
+            <th class="col-start-12 py-1 text-left text-lg font-semibold text-c3"></th>
           </tr>
         </thead>
       </table>
-      <table class="h-72 overflow-y-auto flex flex-1 flex-col" data-task-list="task-list"></table>
+      <table class="h-72 overflow-y-auto flex flex-1 flex-col pr-3" data-task-list="task-list"></table>
     </div>
   </main>
 
