@@ -64,3 +64,14 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
     db.delete(task)
     db.commit()
     return {"message": "Task deleted successfully"}
+
+@app.patch("/tasks/{task_id}/complete", response_model=schemas.TaskResponse)
+def mark_task_completed(task_id: int, db: Session = Depends(get_db)):
+    db_task = db.query(models.Task).filter(models.Task.id == task_id).first()
+    if not db_task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    
+    db_task.done = True  # Supondo que seu model Task tenha um campo 'completed'
+    db.commit()
+    db.refresh(db_task)
+    return db_task
