@@ -29,13 +29,14 @@ async function fetchTasks() {
     const pendingTasks = tasks.filter(task => !task.done);
 
     const taskList = document.querySelector('[data-task-list="task-list"]')
+    taskList.innerHTML = ""
 
     pendingTasks.forEach(task => {
       const taskElement = document.createElement('tbody')
       taskElement.innerHTML = `
         <tr class="grid grid-cols-12 gap-4 mb-5">
           <td class="col-start-1 col-end-4 whitespace-nowrap text-lg font-body text-white overflow-hidden truncate">${task.title}</td>
-          <td class="col-start-5 col-end-10 whitespace-nowrap text-lg font-body text-white overflow-hidden truncate">${task.description}</td>
+          <td class="col-start-5 col-end-10 whitespace-nowrap text-lg font-body pl-0.5 text-white overflow-hidden truncate">${task.description}</td>
           <td class="col-start-11 whitespace-nowrap text-lg font-body text-right">
             <span href="#" class="text-s0 text-lg cursor-pointer hover:underline" onclick="deleteTask(${task.id})">Excluir</span>
           </td>
