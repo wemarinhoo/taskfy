@@ -36,6 +36,8 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-green-500: oklch(72.3% 0.219 149.579);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -280,14 +282,38 @@
   .table {
     display: table;
   }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-44 {
+    height: calc(var(--spacing) * 44);
+  }
   .h-52 {
     height: calc(var(--spacing) * 52);
+  }
+  .h-60 {
+    height: calc(var(--spacing) * 60);
+  }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+  .h-72 {
+    height: calc(var(--spacing) * 72);
+  }
+  .h-80 {
+    height: calc(var(--spacing) * 80);
   }
   .h-\[500px\] {
     height: 500px;
@@ -309,6 +335,9 @@
   }
   .min-h-52 {
     min-height: calc(var(--spacing) * 52);
+  }
+  .min-h-full {
+    min-height: 100%;
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
@@ -384,6 +413,9 @@
   .overflow-y-auto {
     overflow-y: auto;
   }
+  .overflow-y-scroll {
+    overflow-y: scroll;
+  }
   .rounded-\[20px\] {
     border-radius: 20px;
   }
@@ -428,6 +460,9 @@
   .bg-s0 {
     background-color: var(--color-s0);
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
@@ -445,6 +480,12 @@
   }
   .pr-3 {
     padding-right: calc(var(--spacing) * 3);
+  }
+  .pl-0\.5 {
+    padding-left: calc(var(--spacing) * 0.5);
+  }
+  .pl-1 {
+    padding-left: calc(var(--spacing) * 1);
   }
   .pl-8 {
     padding-left: calc(var(--spacing) * 8);
@@ -491,11 +532,17 @@
   .text-c3 {
     color: var(--color-c3);
   }
+  .text-green-500 {
+    color: var(--color-green-500);
+  }
   .text-p1 {
     color: var(--color-p1);
   }
   .text-p2 {
     color: var(--color-p2);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .text-s0 {
     color: var(--color-s0);
