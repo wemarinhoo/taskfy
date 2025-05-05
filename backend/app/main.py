@@ -65,6 +65,10 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
     db.commit()
     return {"message": "Task deleted successfully"}
 
+@app.get("/tasks/pending", response_model=list[schemas.TaskResponse])
+def get_pending_tasks(db: Session = Depends(get_db)):
+    return db.query(models.Task).filter(models.Task.done == False).all()
+
 @app.patch("/tasks/{task_id}/complete", response_model=schemas.TaskResponse)
 def mark_task_completed(task_id: int, db: Session = Depends(get_db)):
     db_task = db.query(models.Task).filter(models.Task.id == task_id).first()
