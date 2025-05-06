@@ -15,7 +15,7 @@
 </head>
 <body class="bg-black flex w-screen h-screen items-center justify-center">
   <main class="w-[1320px] h-[600px] bg-c5 rounded-[40px] p-5">
-    <header class="flex justify-between items-center mb-20">
+    <header class="flex justify-between items-center mb-12">
       <img src="../taskfy-logo.svg" alt="Logo Taskfy">
       <div class="flex items-center gap-10">
         <div class="relative">
@@ -27,25 +27,25 @@
       </div>
     </header>
 
-    <div class="flex justify-evenly w-full">
-      <div class="flex">
+    <div class="flex justify-evenly w-full mb-12">
+      <div class="flex gap-3">
         <div class="rounded-full bg-[#212121] w-[100px] h-[100px] flex items-center justify-center">
           <img src="../assets/task-add.svg" alt="">
         </div>
-        <div>
-          <span>Tarefas Adicionadas</span>
-          <h6>10</h6>
-          <span>+6 Esse Mês</span>
+        <div class="flex flex-col justify-evenly">
+          <span class="font-body text-c3 text-lg">Tarefas Adicionadas</span>
+          <h6 class="text-white text-lg font-body font-semibold" data-tasks-add="tasks-add">0</h6>
+          <span class="font-body text-white text-lg"><span class="text-p1 mr-2">+0</span>esse mês</span>
         </div>
       </div>
-      <div class="flex">
+      <div class="flex gap-3">
         <div class="rounded-full bg-[#212121] w-[100px] h-[100px] flex items-center justify-center">
           <img src="../assets/task-completed.svg" alt="">
         </div>
-        <div>
-          <span>Tarefas Concluídas</span>
-          <h6>10</h6>
-          <span>+10 Esse Mês</span>
+        <div class="flex flex-col justify-evenly">
+          <span class="font-body text-c3 text-lg">Tarefas Concluídas</span>
+          <h6 class="text-white text-lg font-body font-semibold" data-tasks-completed="tasks-completed">0</h6>
+          <span class="font-body text-white text-lg"><span class="text-p1 mr-2">+0</span>esse mês</span>
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@
           </tr>
         </thead>
       </table>
-      <table class="h-52 overflow-y-auto flex flex-1 flex-col pr-3" data-task-list="task-list"></table>
+      <table class="h-48 overflow-y-auto flex flex-1 flex-col pr-3" data-task-list="task-list"></table>
     </div>
   </main>
 
