@@ -35,13 +35,13 @@ async function fetchTasks() {
       const taskElement = document.createElement('tbody')
       taskElement.innerHTML = `
         <tr class="grid grid-cols-12 gap-4 mb-5">
-          <td class="col-start-1 col-end-4 whitespace-nowrap text-lg font-body text-white overflow-hidden truncate">${task.title}</td>
-          <td class="col-start-5 col-end-10 whitespace-nowrap text-lg font-body pl-1 text-white overflow-hidden truncate">${task.description}</td>
+          <td class="col-start-1 col-end-4 whitespace-nowrap text-lg font-body text-white overflow-hidden truncate animate-fade-in-scale">${task.title}</td>
+          <td class="col-start-5 col-end-10 whitespace-nowrap text-lg font-body pl-1 text-white overflow-hidden truncate animate-fade-in-scale">${task.description}</td>
           <td class="col-start-11 whitespace-nowrap text-lg font-body text-right">
-            <span href="#" class="text-s0 text-lg cursor-pointer hover:underline" onclick="deleteTask(${task.id})">Excluir</span>
+            <span href="#" class="text-s0 text-lg cursor-pointer hover:underline animate-fade-in-scale" onclick="deleteTask(${task.id})">Excluir</span>
           </td>
           <td class="col-start-12 whitespace-nowrap text-lg font-body text-right">
-            <span href="#" class="text-p1 text-lg cursor-pointer hover:underline" onclick="completeTask(${task.id})">Concluir</span>
+            <span href="#" class="text-p1 text-lg cursor-pointer hover:underline animate-fade-in-scale" onclick="completeTask(${task.id})">Concluir</span>
           </td>
         </tr>
       `
@@ -69,7 +69,10 @@ async function createTask(title, description) {
         const errorData = await response.json();
         console.error("Erro detalhado:", errorData);
         throw new Error(`Erro HTTP: ${response.status}`);
-
+      } else{
+        taskForm.reset()
+        formTask.classList.remove("flex")
+        formTask.classList.add("hidden")
       }
 
       fetchTasks();
