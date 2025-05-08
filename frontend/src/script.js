@@ -66,7 +66,7 @@ async function createTask(title, description) {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();  // Captura detalhes do erro
+        const errorData = await response.json();
         console.error("Erro detalhado:", errorData);
         throw new Error(`Erro HTTP: ${response.status}`);
 
