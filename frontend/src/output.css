@@ -59,6 +59,7 @@
     --color-p1: #00E600;
     --color-p2: #003300;
     --color-s0: #FF2D2D;
+    --animate-fade-in-scale: fade-in-scale 0.3s ease-in-out;
   }
 }
 @layer base {
@@ -338,6 +339,9 @@
   }
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+  .animate-fade-in-scale {
+    animation: var(--animate-fade-in-scale);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -685,4 +689,14 @@
 @property --tw-duration {
   syntax: "*";
   inherits: false;
+}
+@keyframes fade-in-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
