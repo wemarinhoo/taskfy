@@ -73,8 +73,8 @@ async function createTask(title, description) {
         taskForm.reset()
         formTask.classList.remove("flex")
         formTask.classList.add("hidden")
-      }
-
+        }
+        
       fetchTasks();
   } catch (error) {
     console.error("Erro ao criar tarefa:", error);
