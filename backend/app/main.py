@@ -27,9 +27,9 @@ def get_db():
 def get_tasks(db: Session = Depends(get_db)):
     return db.query(models.Task).all()
 
-@app.post("/tasks", response_model=schemas.TaskResponse)
+@app.post("/tasks", response_model=schemas.TaskResponse, status_code=201)
 def create_task(task: schemas.TaskCreate, db: Session = Depends(get_db)):
-    db_task = models.Task(**task.dict())
+    db_task = models.Task(**task.model_dump()) 
     db.add(db_task)
     db.commit()
     db.refresh(db_task)
