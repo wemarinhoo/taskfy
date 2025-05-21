@@ -4,7 +4,8 @@
     "tailwindcss": "^4.1.1"
   },
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
-    "build": "echo 'Build não necessário para HTML estático' && exit 0"
+    "build": "npm run build:tailwind",
+    "build:tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
   }
 }
