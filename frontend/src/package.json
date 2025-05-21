@@ -5,6 +5,6 @@
   },
   "scripts": {
     "build": "tailwindcss -i src/input.css -o src/output.css --minify",
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+    "dev": "npx @tailwindcss/cli -i input.css -o output.css --watch"
   }
 }
