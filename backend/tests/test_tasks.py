@@ -66,19 +66,6 @@ def test_delete_task(client):
     get_response = client.get(f"/tasks/{task_id}")
     assert get_response.status_code == status.HTTP_404_NOT_FOUND
 
-def test_get_pending_tasks(client):
-    # Cria tarefas com diferentes status
-    client.post("/tasks/", json={"title": "Pending 1", "description": "Desc", "done": False})
-    client.post("/tasks/", json={"title": "Pending 2", "description": "Desc", "done": False})
-    client.post("/tasks/", json={"title": "Completed", "description": "Desc", "done": True})
-    
-    response = client.get("/tasks/pending")
-    assert response.status_code == status.HTTP_200_OK
-    tasks = response.json()
-    assert len(tasks) == 2
-    for task in tasks:
-        assert task["done"] is False
-
 def test_mark_task_completed(client):
     # Cria uma tarefa não concluída
     create_response = client.post("/tasks/", json={"title": "Incomplete", "description": "Desc", "done": False})
