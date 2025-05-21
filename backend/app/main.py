@@ -43,12 +43,17 @@ def get_task(task_id: int, db: Session = Depends(get_db)):
     return task
 
 @app.put("/tasks/{task_id}", response_model=schemas.TaskResponse)
-def update_task(task_id: int, task: schemas.TaskCreate, db: Session = Depends(get_db)):
+def update_task(
+    task_id: int, 
+    task: schemas.TaskUpdate,
+    db: Session = Depends(get_db)
+):
     db_task = db.query(models.Task).filter(models.Task.id == task_id).first()
     if not db_task:
         raise HTTPException(status_code=404, detail="Task not found")
     
-    for key, value in task.dict().items():
+    update_data = task.dict(exclude_unset=True)
+    for key, value in update_data.items():
         setattr(db_task, key, value)
     
     db.commit()
@@ -75,7 +80,7 @@ def mark_task_completed(task_id: int, db: Session = Depends(get_db)):
     if not db_task:
         raise HTTPException(status_code=404, detail="Task not found")
     
-    db_task.done = True  # Supondo que seu model Task tenha um campo 'completed'
+    db_task.done = True
     db.commit()
     db.refresh(db_task)
     return db_task
