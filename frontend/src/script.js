@@ -5,6 +5,7 @@ const taskForm = document.querySelector('[data-task-form="task-form"]')
 const title = document.querySelector('[data-title="title"]') 
 const description = document.querySelector('[data-description="description"]') 
 const buttonAddTask = document.querySelector('[data-button-add-task="button-add-task"]') 
+const API_URL = "https://taskfy-api-qxya.onrender.com"
 
 function openFormTask(){
   formTask.classList.remove('hidden')
@@ -19,7 +20,6 @@ function closeFormTask(){
 btnOpenTask.addEventListener('click', openFormTask)
 btnCloseFormTask.addEventListener('click', closeFormTask)
 
-const API_URL = "http://localhost:8000"
 
 async function fetchTasks() {
   try{
