@@ -27,15 +27,3 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
             -H "Accept: application/json" \
             "https://api.render.com/v1/services/${{ secrets.RENDER_FRONTEND_SERVICE_ID }}/deploys"
-
-  deploy_backend:
-    runs-on: ubuntu-latest
-    needs: deploy_frontend
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deploy no Render (Backend)
-        uses: render-actions/deploy@v1
-        with:
-          service-id: ${{ secrets.RENDER_BACKEND_SERVICE_ID }}
-          api-key: ${{ secrets.RENDER_API_KEY }}
-          directory: backend/app
