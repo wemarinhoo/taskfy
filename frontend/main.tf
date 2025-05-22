@@ -1,5 +1,5 @@
 resource "render_service" "frontend" {
-  name         = "meu-frontend"
+  name         = "taskfy-frontend"
   service_type = "web"
   repo_url     = "https://github.com/wemarinhoo/taskfy"
   branch       = "main"
