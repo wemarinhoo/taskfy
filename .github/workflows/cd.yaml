@@ -1,26 +1,32 @@
-name: Deploy para Render
+name: Deploy Frontend no Render
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   deploy_frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
       - name: Instalar dependências e gerar build
         run: |
-          cd src
+          cd frontend/src
           npm install
           npm run build
 
-      - name: Deploy no Render (Frontend)
-        uses: render-actions/deploy@v1
-        with:
-          service-id: ${{ secrets.RENDER_FRONTEND_SERVICE_ID }}
-          api-key: ${{ secrets.RENDER_API_KEY }}
-          directory: frontend
+      - name: Disparar Deploy no Render (via API)
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Accept: application/json" \
+            "https://api.render.com/v1/services/${{ secrets.RENDER_FRONTEND_SERVICE_ID }}/deploys"
 
   deploy_backend:
     runs-on: ubuntu-latest
